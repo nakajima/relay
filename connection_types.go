@@ -14,8 +14,9 @@ type PageInfo struct {
 }
 
 type Connection struct {
-	Edges    []*Edge  `json:"edges"`
-	PageInfo PageInfo `json:"pageInfo"`
+	Edges      []*Edge               `json:"edges"`
+	PageInfo   PageInfo              `json:"pageInfo"`
+	TotalCount func() (int64, error) `json:"totalCount"`
 }
 
 func NewConnection() *Connection {
